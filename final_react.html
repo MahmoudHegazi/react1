@@ -11,15 +11,18 @@ function myFunction() {
   var div = document.getElementById("myDiv");
   var div1 = document.getElementById("myDiv1");
   var allElements = document.querySelectorAll('.help');
-  
+  var elmIndex = 1;
   for (var i=0; i < allElements.length; i++) {
     let myrect = allElements[i].getBoundingClientRect();
-    let elmlngt = allElements[i].style.height;
+    let elmlngt = allElements[i].offsetHeight;
     elmlngt = -parseInt(elmlngt);
     if (myrect.top > elmlngt) {
       console.log("elm" + parseInt(i+1) + " " + allElements[i].title);
+      allElements[i].style.background = "green";
     } else {
-      console.log("elm" + parseInt(i+1) + " Is not in viewport");
+      allElements[i].style.background = "white";
+      console.log("elm" + parseInt(i+1) + " Is not in viewport" + 
+      allElements[i].style.background);
     }
   }
   
@@ -30,11 +33,14 @@ function myFunction() {
 
 <body>
 <div style="height:200px; width:300px; overflow:auto;margin:0px;">
-<div id="myDiv" class="help" title="in viewport" style="width:250px; height:150px; border:1px solid red;">
+<div id="myDiv" class="help" title="in viewport" style="width:250px; border:1px solid red;">
 Return the top-left corner of this element relative to the top left corner of the viewport with the button below.<br>
 Also try to use the scrollbars to test the method for different positions.
+ corner of the viewport with the button below.<br>
+Also try to use the scrollbars to test the method for different positions.
+ corner of the viewport with the button below.<br>
+Also try to use the scrollbars to test the method for different positions.
 </div>
-
 <div id="myDiv1" data="elm2" title="in viewport" class="help" style="width:250px; height:150px; border:1px solid red;">
 Return the top-left corner of this element relative to the top left corner of the viewport with the button below.<br>
 Also try to use the scrollbars to test the method for different positions.
