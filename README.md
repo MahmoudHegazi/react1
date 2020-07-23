@@ -19,7 +19,8 @@ function myFunction() {
   for (var i=0; i < allElements.length; i++) {
     elmIndex = 1;
     let myrect = allElements[i].getBoundingClientRect();
-    let elmlngt = allElements[i].offsetHeight;
+    let elmlngt = allElements[i].offsetHeight; // clientHeight
+
     elmlngt = -parseInt(elmlngt);
     if (myrect.top > elmlngt + 8 && myrect.top <= 8) {
       allElements[i].classList.add('green');
@@ -34,4 +35,5 @@ function myFunction() {
   
   
 }
+
 ```
